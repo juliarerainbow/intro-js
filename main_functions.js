@@ -141,6 +141,15 @@ console.log(myNewString * 2);
 const myNumber= parseInt(myNewString);//parseInt prende più parametri ...ad esempio radice(binario/esadecimali)
 console.log( myNewString , typeof myNewString, myNumber, typeof myNumber);
 
+
+//---------------------------------------------------- OPERATORE TERNARIO
+function min(firstNumber,secondNumber){
+    // const mimum = firstNumber > secondNumber ? secondNumber : firstNumber;
+    // return minimum; 
+    return firstNumber > secondNumber ? secondNumber : firstNumber;
+    }
+    console.log(min(10,1));
+
 //---------------------------------------------------- 
 
 //1)
@@ -148,16 +157,43 @@ console.log( myNewString , typeof myNewString, myNumber, typeof myNumber);
 //che non faccia uso dell'operatore '**'
 //nè della libreria Math
 
+function pow6(base, exponent){
+    let accum = 1;
+    for (let i = 0; i < exponent; i++) {
+        accum *= base;
+    }
+    return accum;
+}
+console.log("---------------------",pow6(5,4));
 //2) 
 // definire una funzione 'correctCase' che 
 // prende in input una stringa e la restituisce
 // trasformando la prima lettera in maiuscola
 // es. 'la casa blu' => 'La casa blu'
 
+function correctCase(string){
+
+    let changeChar=string[0].toUpperCase();
+    let newString= string.replace(string[0],changeChar)
+    return newString;
+}
+console.log(correctCase('la casa blu'))
 //3)
 //definire una funzione 'min' che dati due numeri
 // restituisca il minore
 
+
+
+//---------------------------------------------------- 
+function minValue(value1,value2){
+    if( value1 < value2 ){
+        return value1;
+    }else{
+        return value2;
+    }
+}
+
+console.log(minValue(10,1));
 //4)
 //definire una funzione 'clamp' che prende come parametri 
 //tre numeri : valore, massimo e minimo.
@@ -166,14 +202,72 @@ console.log( myNewString , typeof myNewString, myNumber, typeof myNumber);
 //altrimenti restituisce valore,
 //es. v=12, min=20, max= 100 => 20
 
+function clamp(value,min,max){
+
+    //if(min>=max){
+    //     return 'max number must be greater than min'
+    // }
+    if(value<min){
+        return min;
+    }
+    if (value>max){
+        return max;
+    }
+    return value;
+}
+
 //5)
 // definire una funzione 'chessboard' che prevede come parametro 'size' e stampa la schacchiera
+
+function chessboard(value){
+let chess='';
+for (let i = 0; i < value; i++) {
+    for (let j = 0; j < value; j++) {
+        if(( i - j ) % 2 === 0){
+            chess+='  ';
+        }else{
+            chess+='❤️';
+        }
+    }
+    chess+='\n';
+}
+return chess;
+}
+
+console.log(chessboard(10));
 
 //6) 
 // definire una funzione 'ellipse' che prende come parametro una stringa 
 // se la stringa è minore di 20 caratteri la ritorna non modificata
 // altrimenti la taglia a 20 caratteri e aggiunge 3 puntini
 
+function ellipse(string,size = 20){
+    if(string.length > size){
+        return string.substring(0, size) + '...';
+    }    
+    return string;
+}
+
+console.log(ellipse('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',3));
+
 //7)
 //definire una funzione 'reverseString' che data una stringa la restituisca al contrario. 
 
+function reverseString(string){
+    let mystring=string.split("");
+    mystring.reverse();
+    return mystring.join("")
+}
+
+console.log(reverseString('pippo'));
+function reverseString1(string){
+     let newString = ''; //<---- accumulatore
+   
+     for (let i = (string.length - 1); i >= 0; i--) {
+        const char = string[i];
+        //newString = newString + char; //<---- accumulatore
+        newString += char; //<---- accumulatore
+        return char;
+    }
+}
+console.log(reverseString1('pippo'));

@@ -152,6 +152,29 @@ function min(firstNumber,secondNumber){
 
 //---------------------------------------------------- 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //1)
 //funzione 'pow' 
 //che non faccia uso dell'operatore '**'

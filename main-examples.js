@@ -178,11 +178,9 @@ console.log("---- ~ convertToNumbersAndSumAll:", convertToNumbersAndSumAll2(test
 const test1 = ['pippo','pluto','qui','quo','qua','paperone']; //18
 
 function returnStringLengthWithoutPWords(array) {
-    const stringArray =array.filter((str)=> str.includes('p')) ;
-    const lengthStringArray = stringArray.map((str) => str.length);
-    console.log("---- ~ lengthStringArray:", lengthStringArray);
-    const finalLength = lengthStringArray.reduce((a,c) => a + c,0);
-    return finalLength;
+    return array.filter((str)=> str.includes('p'))
+                .map((str) => str.length)
+                .reduce((a,c) => a + c,0);
 }
 
 
@@ -197,18 +195,15 @@ console.log("---- ~ returnStringLengthWithoutPWords:", returnStringLengthWithout
 const test2 =[100,10,24,-20,300,6,100,300];
 
 
-function nomeFunzione(array) {
+function nomeFunzione(arr) {
+    // return arr.reduce((a,c,i,o)=> c * i > 1000? c * i  + '' : a,0)
 
-    let accumulator = '';
 
-    for (let i = 0; i < array.length; i++) {
-        const element = array[i];
-        
-    }
+    return arr.reduce((a,c,i,o)=> c * i > 1000? (c * i) + '' : a,0)
 
-    // return arr.reduce((a,c,i,o)=> c * i > 1000? c * i + '' : a,0)
 
 }
+console.log("-------",nomeFunzione(test2));
 
 //3) data una stringa, eliminare tutte le parole più corte di 4 caratteri
 // e restituirle in un array ordinate per lunghezza dalla più lunga.
@@ -219,3 +214,71 @@ const test3 = 'ho fatto il bucato ieri sera ma si è tinto tutto di rosso';
 
 //eloquent js fino al capitolo 5 (higher order funcion)
 //codewars
+
+
+//CAP 4 ES 1-------------------------------------
+function range(start,end){
+    const tempArray = [];
+
+
+    if(end < start){
+        return tempArray;
+    }
+    for (let i = start; i <= end; i++) {
+        tempArray.push(i);
+    }
+    return tempArray;
+}
+
+console.log(range(0,100,2));
+// console.log(range(100,0,2,true));
+
+// function range(start,end,step = 1, reversed = false){
+//     const tempArray = [];
+
+//     if(reversed){
+//         if (start < end){
+//             return tempArray;
+//         }
+//         for (let i = start; i >= end; i -= step) {
+//             tempArray.push(i);
+//         }
+//     }else{
+//         if(end < start){
+//             return tempArray;
+//         }
+//         for (let i = start; i <= end; i+=step) {
+//             tempArray.push(i);
+//         }
+//         return tempArray;
+//     }
+//     return tempArray;
+// }
+
+// console.log(range(0,100,2));
+// console.log(range(100,0,2,true));
+
+
+function sum(numbers) {
+
+    return numbers.reduce((a,c)=> a + c , 0 );
+    
+}
+console.log(sum(range(0,10)));
+
+
+//CAP 4 ES 2-------------------------------------
+
+const tempArray=['qui','quo','qua'];
+
+function reverseArray(array) {
+    const tempArray = [];
+
+    for (let i = array.length - 1; i >=0 ; i--) {
+        const element = array[i];
+        tempArray.push(element);
+    }
+    return tempArray;
+}
+
+console.log(reverseArray(tempArray));
